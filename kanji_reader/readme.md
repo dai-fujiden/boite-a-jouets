@@ -1,4 +1,11 @@
+## 📋 目次 / 目录 / Table of Contents
 
+| Language | Link |
+| :--- | :--- |
+| 🇯🇵 **日本語 (Japanese)** | [日本語の説明へジャンプ](#-使い方-japanese) |
+| 🇨🇳 **简体中文 (Chinese)** | [跳转至中文说明](#-使用方法-chinese) |
+| 🇺🇸 **English (English)** | [Jump to English Description](#-how-to-use-english) |
+| 🇰🇷 **한국어 (Korean)** | [한국어 설명으로 이동](#-사용-방법-korean) |
 ## 🇯🇵 使い方 (Japanese)
 
 この拡張機能は、ウェブページ上で選択した漢字の読み方（日本語・中国語・韓国語）をコンパクトな表形式のポップアップで素早く確認できるツールです。
