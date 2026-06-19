@@ -1,0 +1,52 @@
+.kanji-reader-panel {
+    position: absolute;
+    z-index: 999999;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.kr-table {
+    border-collapse: collapse;
+    width: auto;
+}
+
+.kr-table tr {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+/* 最後の行の線は消す */
+.kr-table tr:last-child {
+    border-bottom: none;
+}
+
+/* 選択漢字の行の下に少し目立つ区切り線を入れる */
+.kr-header-row {
+    border-bottom: 2px solid #e5e7eb !important;
+}
+
+.kr-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4b5563;
+    text-align: left;
+    padding: 4px 8px 4px 0;
+    white-space: nowrap;
+}
+
+.kr-value {
+    font-size: 13px;
+    color: #111827;
+    padding: 4px 0 4px 8px;
+    white-space: nowrap;
+}
+
+/* 選択された漢字の羅列スタイル */
+.kr-kanji-list {
+    font-weight: bold;
+    color: #2563eb;
+    letter-spacing: 2px;
+}

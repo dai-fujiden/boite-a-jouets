@@ -1,0 +1,53 @@
+.kanji-reader-panel {
+    position: absolute;
+    z-index: 999999;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    /* 線を少し細く、マイルドに */
+    border-radius: 8px;
+    /* 角丸を少し控えめに */
+    padding: 8px 12px;
+    /* 余白を小さく */
+    min-width: 120px;
+    /* 最小幅を小さく */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+    /* 影を軽めに */
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+.kr-title {
+    font-size: 12px;
+    /* タイトル（選択テキスト）を小さく */
+    font-weight: normal;
+    color: #6b7280;
+    /* 薄いグレーにして目立たなく */
+    margin-bottom: 6px;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 4px;
+}
+
+.kr-row {
+    display: flex;
+    align-items: center;
+    /* 縦方向の中央揃え */
+    gap: 8px;
+    /* 間隔を少し詰める */
+    margin: 2px 0;
+    /* 行間を詰める */
+}
+
+.kr-char {
+    font-size: 15px;
+    /* 漢字自体のサイズを少し小さく */
+    font-weight: bold;
+    color: #2563eb;
+    width: 18px;
+    /* 幅をコンパクトに */
+}
+
+.kr-read {
+    font-size: 13px;
+    /* 読み方のサイズを少し小さく */
+    color: #111827;
+    line-height: 1.3;
+}
