@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@
             --text-color: #1e293b;
             --border-color: #e2e8f0;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
@@ -26,7 +24,6 @@
             align-items: center;
             min-height: 100vh;
         }
-
         .container {
             background-color: var(--card-bg);
             border-radius: 16px;
@@ -36,20 +33,17 @@
             padding: 30px;
             box-sizing: border-box;
         }
-
         h1 {
             font-size: 1.5rem;
             text-align: center;
             margin-bottom: 24px;
             color: var(--primary-color);
         }
-
         .menu-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
         }
-
         .btn {
             background-color: var(--primary-color);
             color: white;
@@ -64,19 +58,15 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .btn:hover {
             background-color: var(--primary-hover);
         }
-
         .btn:active {
             transform: scale(0.98);
         }
-
         .quiz-box {
             text-align: center;
         }
-
         .question-title {
             font-size: 0.9rem;
             color: #64748b;
@@ -84,24 +74,20 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .question-content {
             font-size: 2.8rem;
             font-weight: bold;
             margin: 20px 0;
             color: #0f172a;
         }
-
         .question-sub {
             font-size: 1.1rem;
             color: #475569;
             margin-bottom: 20px;
         }
-
         .hint-container {
             margin-bottom: 20px;
         }
-
         .hint-btn {
             background-color: #e0e7ff;
             color: #3730a3;
@@ -112,11 +98,9 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
         .hint-btn:hover {
             background-color: #c7d2fe;
         }
-
         .hint-text {
             display: none;
             margin-top: 10px;
@@ -128,14 +112,12 @@
             text-align: left;
             line-height: 1.5;
         }
-
         .choices-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-bottom: 20px;
         }
-
         .choice-btn {
             background-color: #f1f5f9;
             color: var(--text-color);
@@ -146,12 +128,10 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
         .choice-btn:hover {
             background-color: #e2e8f0;
             border-color: #cbd5e1;
         }
-
         .back-btn {
             background-color: transparent;
             color: #64748b;
@@ -161,26 +141,17 @@
             font-size: 0.9rem;
             margin-top: 10px;
         }
-
         .back-btn:hover {
             color: var(--text-color);
         }
-
         .feedback {
             font-size: 1.2rem;
             font-weight: bold;
             margin: 15px 0;
             min-height: 30px;
         }
-
-        .correct {
-            color: #16a34a;
-        }
-
-        .incorrect {
-            color: #dc2626;
-        }
-
+        .correct { color: #16a34a; }
+        .incorrect { color: #dc2626; }
         .score-board {
             display: flex;
             justify-content: space-between;
@@ -192,275 +163,273 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container" id="app">
-        <div id="menu-screen">
-            <h1>タイ語総合クイズ・改訂版</h1>
-            <div class="menu-grid">
-                <button class="btn" onclick="startQuiz(1)">タイプ1: 子音のクラス判定 <span>▶</span></button>
-                <button class="btn" onclick="startQuiz(2)">タイプ2: 母音・音節マッチング <span>▶</span></button>
-                <button class="btn" onclick="startQuiz(3)">タイプ3: タイ語読み方選択 (声調・クラス混在) <span>▶</span></button>
-                <button class="btn" onclick="startQuiz(4)">タイプ4: ローマ字→タイ語変換 <span>▶</span></button>
-            </div>
-        </div>
-
-        <div id="quiz-screen" style="display: none;" class="quiz-box">
-            <div class="score-board">
-                <span id="progress-text">問題 1 / 10</span>
-                <span id="score-text">正解数: 0</span>
-            </div>
-            <div class="question-title" id="q-category">カテゴリ</div>
-            <div class="question-content" id="q-main">ก</div>
-            <div class="question-sub" id="q-sub">この文字のクラスは？</div>
-
-            <div class="hint-container" id="hint-section">
-                <button class="hint-btn" onclick="toggleHint()">💡 ヒント・解説を見る</button>
-                <div class="hint-text" id="hint-box">ここに解説が表示されます</div>
-            </div>
-
-            <div class="choices-grid" id="choices-container"></div>
-
-            <div class="feedback" id="feedback"></div>
-            <button class="back-btn" onclick="returnToMenu()">メニューに戻る</button>
-        </div>
-
-        <div id="result-screen" style="display: none;" class="quiz-box">
-            <h1>クイズ終了！</h1>
-            <p style="font-size: 1.2rem; margin: 20px 0;" id="final-score-text">正解率: 10/10</p>
-            <button class="btn" style="width: 100%; justify-content: center;" onclick="returnToMenu()">メニューに戻る</button>
+<div class="container" id="app">
+    <div id="menu-screen">
+        <h1>タイ語総合クイズ・改訂版</h1>
+        <div class="menu-grid">
+            <button class="btn" onclick="startQuiz(1)">タイプ1: 子音のクラス判定 <span>▶</span></button>
+            <button class="btn" onclick="startQuiz(2)">タイプ2: 母音・音節マッチング <span>▶</span></button>
+            <button class="btn" onclick="startQuiz(3)">タイプ3: タイ語読み方選択 (声調・クラス混在) <span>▶</span></button>
+            <button class="btn" onclick="startQuiz(4)">タイプ4: ローマ字→タイ語変換 <span>▶</span></button>
         </div>
     </div>
 
-    <script>
-        const consonants = [
-            { char: "ก", name: "koɔ kai", class: "中子音" },
-            { char: "ข", name: "khoɔ khai", class: "高子音" },
-            { char: "ค", name: "khoɔ khwai", class: "低子音" },
-            { char: "จ", name: "choɔ jaan", class: "中子音" },
-            { char: "ฉ", name: "chhoɔ chhiŋ", class: "高子音" },
-            { char: "ช", name: "choɔ chaang", class: "低子音" },
-            { char: "ด", name: "doɔ deek", class: "中子音" },
-            { char: "ต", name: "toɔ tao", class: "中子音" },
-            { char: "ถ", name: "thoɔ thung", class: "高子音" },
-            { char: "ท", name: "thoɔ thahaan", class: "低子音" },
-            { char: "น", name: "noɔ nuu", class: "低子音" },
-            { char: "บ", name: "boɔ baimai", class: "中子音" },
-            { char: "ป", name: "poɔ plaa", class: "中子音" },
-            { char: "ผ", name: "phoɔ phueng", class: "高子音" },
-            { char: "ฝ", name: "foɔ faa", class: "高子音" },
-            { char: "พ", name: "phoɔ phan", class: "低子音" },
-            { char: "ฟ", name: "foɔ fan", class: "低子音" },
-            { char: "ม", name: "moɔ maa", class: "低子音" },
-            { char: "ย", name: "yoɔ yak", class: "低子音" },
-            { char: "ร", name: "roɔ ruea", class: "低子音" },
-            { char: "ล", name: "loɔ liing", class: "低子音" },
-            { char: "ว", name: "woɔ waen", class: "低子音" },
-            { char: "ส", name: "soɔ suea", class: "高子音" },
-            { char: "ห", name: "hoɔ hiip", class: "高子音" },
-            { char: "อ", name: "oɔ ang", class: "中子音" },
-            { char: "ฮ", name: "hoɔ nokhuk", class: "低子音" }
-        ];
+    <div id="quiz-screen" style="display: none;" class="quiz-box">
+        <div class="score-board">
+            <span id="progress-text">問題 1 / 10</span>
+            <span id="score-text">正解数: 0</span>
+        </div>
+        <div class="question-title" id="q-category">カテゴリ</div>
+        <div class="question-content" id="q-main">ก</div>
+        <div class="question-sub" id="q-sub">この文字のクラスは？</div>
 
-        const vowelsAndSyllables = [
-            { thai: "ะ", roman: "a", desc: "短母音 ア" },
-            { thai: "า", roman: "aa", desc: "長母音 アー" },
-            { thai: "ิ", roman: "i", desc: "短母音 イ" },
-            { thai: "ี", roman: "ii", desc: "長母音 イー" },
-            { thai: "ึ", roman: "ɯ", desc: "短母音 ɯ (イの口でウ)" },
-            { thai: "ื", roman: "ɯɯ", desc: "長母音 ɯɯ (イの口でウー)" },
-            { thai: "ุ", roman: "u", desc: "短母音 ウ" },
-            { thai: "ู", roman: "uu", desc: "長母音 ウー" },
-            { thai: "เ", roman: "e", desc: "長母音 エー" },
-            { thai: "แ", roman: "ε", desc: "長母音 ε (横に広いエの音: แ-)" },
-            { thai: "โ", roman: "o", desc: "長母音 オー" },
-            { thai: "ำ", roman: "am", desc: "複合母音 アム" }
-        ];
+        <div class="hint-container" id="hint-section">
+            <button class="hint-btn" onclick="toggleHint()">💡 ヒント・解説を見る</button>
+            <div class="hint-text" id="hint-box">ここに解説が表示されます</div>
+        </div>
+        
+        <div class="choices-grid" id="choices-container"></div>
 
-        let currentType = 0;
-        let currentIndex = 0;
-        let score = 0;
-        let questionsList = [];
-        let currentActiveQuestion = null;
+        <div class="feedback" id="feedback"></div>
+        <button class="back-btn" onclick="returnToMenu()">メニューに戻る</button>
+    </div>
 
-        function shuffle(array) {
-            return [...array].sort(() => Math.random() - 0.5);
+    <div id="result-screen" style="display: none;" class="quiz-box">
+        <h1>クイズ終了！</h1>
+        <p style="font-size: 1.2rem; margin: 20px 0;" id="final-score-text">正解率: 10/10</p>
+        <button class="btn" style="width: 100%; justify-content: center;" onclick="returnToMenu()">メニューに戻る</button>
+    </div>
+</div>
+
+<script>
+    const consonants = [
+        { char: "ก", name: "koɔ kai", class: "中子音" },
+        { char: "ข", name: "khoɔ khai", class: "高子音" },
+        { char: "ค", name: "khoɔ khwai", class: "低子音" },
+        { char: "จ", name: "choɔ jaan", class: "中子音" },
+        { char: "ฉ", name: "chhoɔ chhiŋ", class: "高子音" },
+        { char: "ช", name: "choɔ chaang", class: "低子音" },
+        { char: "ด", name: "doɔ deek", class: "中子音" },
+        { char: "ต", name: "toɔ tao", class: "中子音" },
+        { char: "ถ", name: "thoɔ thung", class: "高子音" },
+        { char: "ท", name: "thoɔ thahaan", class: "低子音" },
+        { char: "น", name: "noɔ nuu", class: "低子音" },
+        { char: "บ", name: "boɔ baimai", class: "中子音" },
+        { char: "ป", name: "poɔ plaa", class: "中子音" },
+        { char: "ผ", name: "phoɔ phueng", class: "高子音" },
+        { char: "ฝ", name: "foɔ faa", class: "高子音" },
+        { char: "พ", name: "phoɔ phan", class: "低子音" },
+        { char: "ฟ", name: "foɔ fan", class: "低子音" },
+        { char: "ม", name: "moɔ maa", class: "低子音" },
+        { char: "ย", name: "yoɔ yak", class: "低子音" },
+        { char: "ร", name: "roɔ ruea", class: "低子音" },
+        { char: "ล", name: "loɔ liing", class: "低子音" },
+        { char: "ว", name: "woɔ waen", class: "低子音" },
+        { char: "ส", name: "soɔ suea", class: "高子音" },
+        { char: "ห", name: "hoɔ hiip", class: "高子音" },
+        { char: "อ", name: "oɔ ang", class: "中子音" },
+        { char: "ฮ", name: "hoɔ nokhuk", class: "低子音" }
+    ];
+
+    const vowelsAndSyllables = [
+        { thai: "ะ", roman: "a", desc: "短母音 ア" },
+        { thai: "า", roman: "aa", desc: "長母音 アー" },
+        { thai: "ิ", roman: "i", desc: "短母音 イ" },
+        { thai: "ี", roman: "ii", desc: "長母音 イー" },
+        { thai: "ึ", roman: "ɯ", desc: "短母音 ɯ (イの口でウ)" },
+        { thai: "ื", roman: "ɯɯ", desc: "長母音 ɯɯ (イの口でウー)" },
+        { thai: "ุ", roman: "u", desc: "短母音 ウ" },
+        { thai: "ู", roman: "uu", desc: "長母音 ウー" },
+        { thai: "เ", roman: "e", desc: "長母音 エー" },
+        { thai: "แ", roman: "ε", desc: "長母音 ε (横に広いエの音: แ-)" },
+        { thai: "โ", roman: "o", desc: "長母音 オー" },
+        { thai: "ำ", roman: "am", desc: "複合母音 アム" }
+    ];
+
+    let currentType = 0;
+    let currentIndex = 0;
+    let score = 0;
+    let questionsList = [];
+    let currentActiveQuestion = null;
+
+    function shuffle(array) {
+        return [...array].sort(() => Math.random() - 0.5);
+    }
+
+    function startQuiz(type) {
+        currentType = type;
+        currentIndex = 0;
+        score = 0;
+        
+        document.getElementById('menu-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+        document.getElementById('result-screen').style.display = 'none';
+
+        generateQuestions();
+        loadQuestion();
+    }
+
+    function generateQuestions() {
+        if (currentType === 1) {
+            questionsList = shuffle([...consonants]).slice(0, 10);
+        } else if (currentType === 2) {
+            questionsList = shuffle([...vowelsAndSyllables]).slice(0, 10);
+        } else if (currentType === 3) {
+            // タイプ3: 読み方・声調問題（問題を拡充）
+            questionsList = shuffle([
+                { thai: "กา", subText: "中子音 + 長母音", correct: "kaa (平声)", choices: ["kaa (平声)", "kàa (低声)", "káa (高声)", "kâa (下降声)"], hint: "【解説】中子音＋長母音（生音節）は声調符なしの場合、平声になります。" },
+                { thai: "ข่า", subText: "高子音 + 低声符", correct: "khàa (低声)", choices: ["khaa (平声)", "khàa (低声)", "khâa (下降声)", "khǎa (上声)"], hint: "【解説】高子音に低声符（่）がつくことで低声になります。" },
+                { thai: "ค้า", subText: "高子音 + 第2声調符(トｰ)", correct: "kháa (高声)", choices: ["khàa (低声)", "kháa (高声)", "khâa (下降声)", "khaa (平声)"], hint: "【解説】高子音に第2声調符（マイ・トー ้）がつくと高声になります。" },
+                { thai: "บ้า", subText: "中子音 + 第2声調符(トｰ)", correct: "bâa (下降声)", choices: ["baa (平声)", "bàa (低声)", "bâa (下降声)", "bǎa (上声)"], hint: "【解説】中子音にマイ・トー（้）がつくと下降声になります。" },
+                { thai: "เดิน", subText: "低子音 + ǝǝ + 末子音(-n: 共鳴音)", correct: "dǝǝn (平声)", choices: ["doon (平声)", "dǝǝn (平声)", "dɛɛn (平声)", "daan (平声)"], hint: "【解説】末子音の -n は共鳴音（鼻音）のため、声調に影響を与えず平声のままになります。" },
+                { thai: "แพ", subText: "低子音 + ε (横に広いエ)", correct: "phεε (平声)", choices: ["phae", "phεε", "phee", "phɯɯ"], hint: "【解説】「แพ」の母音はแ-であり、口を横に広く開ける「ε」で表します。複合子音要素(phr)と組み合わさります。" },
+                { thai: "มือ", subText: "低子音 + ɯɯ (イの口でウー)", correct: "mɯɯ (平声)", choices: ["muu", "mɯɯ", "moo", "maa"], hint: "【解説】「ือ」はイの口の形でウと発音する長母音（ɯɯ）です。" },
+                { thai: "เสือ", subText: "高子音 + ɯa 複合母音", correct: "sɯ̌a (上声)", choices: ["sɯa", "sɯ̌a", "sưa", "sua"], hint: "【解説】高子音＋生音節（長母音・複合母音）は、声調符がなくても上声になります。" },
+                { thai: "ตึก", subText: "中子音 + ɯ (短) + 促音(-k: 閉鎖音)", correct: "tʉ̀k (低声)", choices: ["tʉ̀k (低声)", "túk (高声)", "tuuk (平声)", "tûuk (下降声)"], hint: "【解説】短母音＋閉鎖音(-k)は音が詰まる死音節になり、中子音の場合は「低声」になります。" },
+                { thai: "บ้าน", subText: "中子音 + า + 第2声調符 + 共鳴音(-n)", correct: "bâan (下降声)", choices: ["baan (平声)", "bàan (低声)", "bâan (下降声)", "bǎan (上声)"], hint: "【解説】中子音＋マイ・トー（้）がつくため下降声になります。末子音の -n は共鳴音です。" },
+                { thai: "นา", subText: "低子音 + 長母音", correct: "naa (平声)", choices: ["naa (平声)", "nàa (低声)", "náa (高声)", "nâa (下降声)"], hint: "【解説】低子音＋長母音の生音節は平声になります。" },
+                { thai: "หู", subText: "高子音 + 長母音", correct: "hǔu (上声)", choices: ["huu (平声)", "hùu (低声)", "hǔu (上声)", "hûu (下降声)"], hint: "【解説】高子音＋長母音の生音節は上声になります。" },
+                { thai: "ปาก", subText: "中子音 + า + 閉鎖音(-k)", correct: "pàak (低声)", choices: ["paak (平声)", "pàak (低声)", "pâak (下降声)", "pǎak (上声)"], hint: "【解説】中子音＋長母音＋閉鎖音(-k)の死音節は低声になります。" },
+                { thai: "แมว", subText: "低子音 + ε + 末子音(-w)", correct: "mεεw (平声)", choices: ["maew", "mεεw", "moow", "muuw"], hint: "【解説】横に広いエの母音 $\varepsilon$ と、共鳴音の末子音 -w が使われています。" }
+            ]);
+        } else if (currentType === 4) {
+            // タイプ4: ローマ字→タイ語変換問題（問題を拡充）
+            questionsList = shuffle([
+                { promptText: "kháa (高声, 高子音+長母音)", correct: "ค้า", choices: ["คา", "ข่า", "ค้า", "ค่า"], hint: "【解説】高声にするために高子音と第2声調符（้）が使われています。" },
+                { promptText: "bâa (下降声, 中子音+長母音)", correct: "บ้า", choices: ["ปา", "บ่า", "บ้า", "ป้า"], hint: "【解説】中子音＋第2声調符（้）の組み合わせです。" },
+                { promptText: "mɯɯ (イの口でウー, 低子音)", correct: "มือ", choices: ["มู", "มือ", "แม", "มอ"], hint: "【解説】イの口でウを発音する長母音 ɯɯ（ือ）を使用します。" },
+                { promptText: "phrε (横に広いε, 低子音)", correct: "แพ", choices: ["เพ", "แพ", "พo", "พื"], hint: "【解説】横に広いエの母音記号 $\varepsilon$（แ-）が使われています。" },
+                { promptText: "sɯ̌a (ɯa複合母音, 高子音)", correct: "เสือ", choices: ["เสือ", "สัว", "เสอ", "เสือะ"], hint: "【解説】複合母音 -ɯa（-ือ-）の組み合わせです。" },
+                { promptText: "dǝǝn (ǝǝ母音 + 共鳴音末子音n, 低子音)", correct: "เดิน", choices: ["ดอน", "เดม", "เดิน", "ดาน"], hint: "【解説】末子音の -n は共鳴音です。" },
+                { promptText: "tùk (短母音ɯ + 閉鎖音-k, 中子音)", correct: "ตึก", choices: ["ตุก", "ตึก", "ตก", "ตาก"], hint: "【解説】末子音が -k（閉鎖音）で音が詰まるパターンです。" },
+                { promptText: "bâan (下降声, 共鳴音末子音n)", correct: "บ้าน", choices: ["บาน", "บ่าน", "บ้าน", "บ๊าน"], hint: "【解説】中子音＋マイ・トー（้）＋共鳴音(-n)の組み合わせです。" },
+                { promptText: "naa (平声, 低子音+長母音)", correct: "นา", choices: ["นา", "หนา", "น้า", "หน่า"], hint: "【解説】低子音＋長母音の生音節です。" },
+                { promptText: "hǔu (上声, 高子音+長母音)", correct: "หู", choices: ["หู", "หู่", "ฮู", "หู้"], hint: "【解説】高子音＋長母音の生音節は上声になります。" },
+                { promptText: "pàak (低声, 中子音+長母音+閉鎖音k)", correct: "ปาก", choices: ["ปาก", "ปาก์", "ป้าก", "ปั๊ก"], hint: "【解説】中子音＋長母音＋閉鎖音(-k)の死音節です。" },
+                { promptText: "mεεw (平声, 低子音+ε+末子音w)", correct: "แมว", choices: ["แมว", "เมา", "แวว", "โมว"], hint: "【解説】横に広いエ $\varepsilon$ と末子音 -w の組み合わせです。" }
+            ]);
         }
+    }
 
-        function startQuiz(type) {
-            currentType = type;
-            currentIndex = 0;
-            score = 0;
-
-            document.getElementById('menu-screen').style.display = 'none';
-            document.getElementById('quiz-screen').style.display = 'block';
-            document.getElementById('result-screen').style.display = 'none';
-
-            generateQuestions();
-            loadQuestion();
-        }
-
-        function generateQuestions() {
-            if (currentType === 1) {
-                questionsList = shuffle([...consonants]).slice(0, 10);
-            } else if (currentType === 2) {
-                questionsList = shuffle([...vowelsAndSyllables]).slice(0, 10);
-            } else if (currentType === 3) {
-                // タイプ3: 読み方・声調問題（問題を拡充）
-                questionsList = shuffle([
-                    { thai: "กา", subText: "中子音 + 長母音", correct: "kaa (平声)", choices: ["kaa (平声)", "kàa (低声)", "káa (高声)", "kâa (下降声)"], hint: "【解説】中子音＋長母音（生音節）は声調符なしの場合、平声になります。" },
-                    { thai: "ข่า", subText: "高子音 + 低声符", correct: "khàa (低声)", choices: ["khaa (平声)", "khàa (低声)", "khâa (下降声)", "khǎa (上声)"], hint: "【解説】高子音に低声符（่）がつくことで低声になります。" },
-                    { thai: "ค้า", subText: "高子音 + 第2声調符(トｰ)", correct: "kháa (高声)", choices: ["khàa (低声)", "kháa (高声)", "khâa (下降声)", "khaa (平声)"], hint: "【解説】高子音に第2声調符（マイ・トー ้）がつくと高声になります。" },
-                    { thai: "บ้า", subText: "中子音 + 第2声調符(トｰ)", correct: "bâa (下降声)", choices: ["baa (平声)", "bàa (低声)", "bâa (下降声)", "bǎa (上声)"], hint: "【解説】中子音にマイ・トー（้）がつくと下降声になります。" },
-                    { thai: "เดิน", subText: "低子音 + ǝǝ + 末子音(-n: 共鳴音)", correct: "dǝǝn (平声)", choices: ["doon (平声)", "dǝǝn (平声)", "dɛɛn (平声)", "daan (平声)"], hint: "【解説】末子音の -n は共鳴音（鼻音）のため、声調に影響を与えず平声のままになります。" },
-                    { thai: "แพ", subText: "低子音 + ε (横に広いエ)", correct: "phεε (平声)", choices: ["phae", "phεε", "phroe", "phrɯ"], hint: "【解説】「แพ」の母音はแ-であり、口を横に広く開ける「ε」で表します。複合子音要素(phr)と組み合わさります。" },
-                    { thai: "มือ", subText: "低子音 + ɯɯ (イの口でウー)", correct: "mɯɯ (平声)", choices: ["muu", "mɯɯ", "moo", "maa"], hint: "【解説】「ือ」はイの口の形でウと発音する長母音（ɯɯ）です。" },
-                    { thai: "เสือ", subText: "高子音 + ɯa 複合母音", correct: "sɯ̌a (上声)", choices: ["sɯa", "sɯ̌a", "sưa", "sua"], hint: "【解説】高子音＋生音節（長母音・複合母音）は、声調符がなくても上声になります。" },
-                    { thai: "ตึก", subText: "中子音 + ɯ (短) + 促音(-k: 閉鎖音)", correct: "tùk (低声)", choices: ["tùk (低声)", "túk (高声)", "tuuk (平声)", "tûuk (下降声)"], hint: "【解説】短母音＋閉鎖音(-k)は音が詰まる死音節になり、中子音の場合は「低声」になります。" },
-                    { thai: "บ้าน", subText: "中子音 + า + 第2声調符 + 共鳴音(-n)", correct: "bâan (下降声)", choices: ["baan (平声)", "bàan (低声)", "bâan (下降声)", "bǎan (上声)"], hint: "【解説】中子音＋マイ・トー（้）がつくため下降声になります。末子音の -n は共鳴音です。" },
-                    { thai: "นา", subText: "低子音 + 長母音", correct: "naa (平声)", choices: ["naa (平声)", "nàa (低声)", "náa (高声)", "nâa (下降声)"], hint: "【解説】低子音＋長母音の生音節は平声になります。" },
-                    { thai: "หู", subText: "高子音 + 長母音", correct: "hǔu (上声)", choices: ["huu (平声)", "hùu (低声)", "hǔu (上声)", "hûu (下降声)"], hint: "【解説】高子音＋長母音の生音節は上声になります。" },
-                    { thai: "ปาก", subText: "中子音 + า + 閉鎖音(-k)", correct: "pàak (低声)", choices: ["paak (平声)", "pàak (低声)", "pâak (下降声)", "pǎak (上声)"], hint: "【解説】中子音＋長母音＋閉鎖音(-k)の死音節は低声になります。" },
-                    { thai: "แมว", subText: "低子音 + ε + 末子音(-w)", correct: "mεεw (平声)", choices: ["maew", "mεεw", "moow", "muuw"], hint: "【解説】横に広いエの母音 $\varepsilon$ と、共鳴音の末子音 -w が使われています。" }
-                ]);
-            } else if (currentType === 4) {
-                // タイプ4: ローマ字→タイ語変換問題（問題を拡充）
-                questionsList = shuffle([
-                    { promptText: "kháa (高声, 高子音+長母音)", correct: "ค้า", choices: ["คา", "ข่า", "ค้า", "ค่า"], hint: "【解説】高声にするために高子音と第2声調符（้）が使われています。" },
-                    { promptText: "bâa (下降声, 中子音+長母音)", correct: "บ้า", choices: ["ปา", "บ่า", "บ้า", "ป้า"], hint: "【解説】中子音＋第2声調符（้）の組み合わせです。" },
-                    { promptText: "mɯɯ (イの口でウー, 低子音)", correct: "มือ", choices: ["มู", "มือ", "แม", "มอ"], hint: "【解説】イの口でウを発音する長母音 ɯɯ（ือ）を使用します。" },
-                    { promptText: "phrε (横に広いε, 低子音)", correct: "แพ", choices: ["เพ", "แพ", "พo", "พื"], hint: "【解説】横に広いエの母音記号 $\varepsilon$（แ-）が使われています。" },
-                    { promptText: "sɯ̌a (ɯa複合母音, 高子音)", correct: "เสือ", choices: ["เสือ", "สัว", "เสอ", "เสือะ"], hint: "【解説】複合母音 -ɯa（-ือ-）の組み合わせです。" },
-                    { promptText: "dǝǝn (ǝǝ母音 + 共鳴音末子音n, 低子音)", correct: "เดิน", choices: ["ดอน", "เดーン", "เดิน", "ดาน"], hint: "【解説】末子音の -n は共鳴音です。" },
-                    { promptText: "tùk (短母音ɯ + 閉鎖音-k, 中子音)", correct: "ตึก", choices: ["ตุก", "ตึก", "ตก", "ตาก"], hint: "【解説】末子音が -k（閉鎖音）で音が詰まるパターンです。" },
-                    { promptText: "bâan (下降声, 共鳴音末子音n)", correct: "บ้าน", choices: ["บาน", "บ่าน", "บ้าน", "บ๊าน"], hint: "【解説】中子音＋マイ・トー（้）＋共鳴音(-n)の組み合わせです。" },
-                    { promptText: "naa (平声, 低子音+長母音)", correct: "นา", choices: ["นา", "หนา", "น้า", "หน่า"], hint: "【解説】低子音＋長母音の生音節です。" },
-                    { promptText: "hǔu (上声, 高子音+長母音)", correct: "หู", choices: ["หู", "หู่", "ฮู", "หู้"], hint: "【解説】高子音＋長母音の生音節は上声になります。" },
-                    { promptText: "pàak (低声, 中子音+長母音+閉鎖音k)", correct: "ปาก", choices: ["ปาก", "ปาก์", "ป้าก", "ปั๊ก"], hint: "【解説】中子音＋長母音＋閉鎖音(-k)の死音節です。" },
-                    { promptText: "mεεw (平声, 低子音+ε+末子音w)", correct: "แมว", choices: ["แมว", "เมา", "แวว", "โมว"], hint: "【解説】横に広いエ $\varepsilon$ と末子音 -w の組み合わせです。" }
-                ]);
-            }
-        }
-
-        function loadQuestion() {
-            if (currentIndex >= questionsList.length) {
-                document.getElementById('quiz-screen').style.display = 'none';
-                document.getElementById('result-screen').style.display = 'block';
-                document.getElementById('final-score-text').innerText = `正解率: ${score} / ${questionsList.length}`;
-                return;
-            }
-
-            const q = questionsList[currentIndex];
-            currentActiveQuestion = q;
-
-            document.getElementById('progress-text').innerText = `問題 ${currentIndex + 1} / ${questionsList.length}`;
-            document.getElementById('score-text').innerText = `正解数: ${score}`;
-            document.getElementById('feedback').innerText = '';
-
-            // ヒントを初期非表示に設定
-            document.getElementById('hint-box').style.display = 'none';
-            document.getElementById('hint-box').innerText = q.hint || "ヒントはありません。";
-
-            let mainText = "";
-            let subText = "";
-            let categoryTitle = "";
-            let choices = [];
-
-            if (currentType === 1) {
-                categoryTitle = "タイプ1: 子音のクラス判定";
-                mainText = q.char;
-                subText = "この子音のクラスはどれでしょう？";
-                document.getElementById('hint-box').innerText = `【解説】読み方: ${q.name} / クラス: ${q.class}`;
-                choices = shuffle(["高子音", "中子音", "低子音"]);
-            } else if (currentType === 2) {
-                categoryTitle = "タイプ2: 母音・音節マッチング";
-                q.isReverse = Math.random() > 0.5;
-                if (!q.isReverse) {
-                    mainText = q.thai;
-                    subText = "この母音のローマ字・音声表記は？";
-                    document.getElementById('hint-box').innerText = `【解説】説明: ${q.desc}`;
-                    choices = shuffle([q.roman, ...vowelsAndSyllables.filter(v => v.roman !== q.roman).map(v => v.roman)].slice(0, 3));
-                } else {
-                    mainText = `[ロー] ${q.roman}`;
-                    subText = "対応するタイ文字の母音は？";
-                    document.getElementById('hint-box').innerText = `【解説】説明: ${q.desc}`;
-                    choices = shuffle([q.thai, ...vowelsAndSyllables.filter(v => v.thai !== q.thai).map(v => v.thai)].slice(0, 3));
-                }
-            } else if (currentType === 3) {
-                categoryTitle = "タイプ3: 読み方・声調の選択";
-                mainText = q.thai;
-                subText = "正しい読み方・声調を選んでください";
-                choices = shuffle([...q.choices]);
-            } else if (currentType === 4) {
-                categoryTitle = "タイプ4: アルファベット→タイ語変換";
-                mainText = q.promptText;
-                subText = "条件に合う正しいタイ文字はどれ？";
-                choices = shuffle([...q.choices]);
-            }
-
-            document.getElementById('q-category').innerText = categoryTitle;
-            document.getElementById('q-main').innerText = mainText;
-            document.getElementById('q-sub').innerText = subText;
-
-            const container = document.getElementById('choices-container');
-            container.innerHTML = '';
-
-            choices.forEach(choice => {
-                const btn = document.createElement('button');
-                btn.className = 'choice-btn';
-                btn.innerText = choice;
-                btn.onclick = () => checkAnswer(choice, getCorrectAnswer(q));
-                container.appendChild(btn);
-            });
-        }
-
-        function toggleHint() {
-            const hintBox = document.getElementById('hint-box');
-            if (hintBox.style.display === 'block') {
-                hintBox.style.display = 'none';
-            } else {
-                hintBox.style.display = 'block';
-            }
-        }
-
-        function getCorrectAnswer(q) {
-            if (currentType === 1) return q.class;
-            if (currentType === 2) return q.isReverse ? q.thai : q.roman;
-            if (currentType === 3) return q.correct;
-            if (currentType === 4) return q.correct;
-        }
-
-        function checkAnswer(selected, correct) {
-            const feedback = document.getElementById('feedback');
-            const buttons = document.querySelectorAll('.choice-btn');
-            buttons.forEach(b => b.disabled = true);
-
-            // 正解・不正解にかかわらず、解答後にヒント（解説）を開いて復習しやすくする
-            document.getElementById('hint-box').style.display = 'block';
-
-            if (selected === correct) {
-                feedback.innerText = "正解！ 🎉";
-                feedback.className = "feedback correct";
-                score++;
-            } else {
-                feedback.innerText = `不正解... 正解は "${correct}" です。`;
-                feedback.className = "feedback incorrect";
-            }
-
-            currentIndex++;
-            setTimeout(() => {
-                loadQuestion();
-            }, 2200);
-        }
-
-        function returnToMenu() {
-            document.getElementById('menu-screen').style.display = 'block';
+    function loadQuestion() {
+        if (currentIndex >= questionsList.length) {
             document.getElementById('quiz-screen').style.display = 'none';
-            document.getElementById('result-screen').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'block';
+            document.getElementById('final-score-text').innerText = `正解率: ${score} / ${questionsList.length}`;
+            return;
         }
-    </script>
+
+        const q = questionsList[currentIndex];
+        currentActiveQuestion = q;
+
+        document.getElementById('progress-text').innerText = `問題 ${currentIndex + 1} / ${questionsList.length}`;
+        document.getElementById('score-text').innerText = `正解数: ${score}`;
+        document.getElementById('feedback').innerText = '';
+        
+        // ヒントを初期非表示に設定
+        document.getElementById('hint-box').style.display = 'none';
+        document.getElementById('hint-box').innerText = q.hint || "ヒントはありません。";
+
+        let mainText = "";
+        let subText = "";
+        let categoryTitle = "";
+        let choices = [];
+
+        if (currentType === 1) {
+            categoryTitle = "タイプ1: 子音のクラス判定";
+            mainText = q.char;
+            subText = "この子音のクラスはどれでしょう？";
+            document.getElementById('hint-box').innerText = `【解説】読み方: ${q.name} / クラス: ${q.class}`;
+            choices = shuffle(["高子音", "中子音", "低子音"]);
+        } else if (currentType === 2) {
+            categoryTitle = "タイプ2: 母音・音節マッチング";
+            q.isReverse = Math.random() > 0.5;
+            if (!q.isReverse) {
+                mainText = q.thai;
+                subText = "この母音のローマ字・音声表記は？";
+                document.getElementById('hint-box').innerText = `【解説】説明: ${q.desc}`;
+                choices = shuffle([q.roman, ...vowelsAndSyllables.filter(v => v.roman !== q.roman).map(v => v.roman)].slice(0, 3));
+            } else {
+                mainText = `[ロー] ${q.roman}`;
+                subText = "対応するタイ文字の母音は？";
+                document.getElementById('hint-box').innerText = `【解説】説明: ${q.desc}`;
+                choices = shuffle([q.thai, ...vowelsAndSyllables.filter(v => v.thai !== q.thai).map(v => v.thai)].slice(0, 3));
+            }
+        } else if (currentType === 3) {
+            categoryTitle = "タイプ3: 読み方・声調の選択";
+            mainText = q.thai;
+            subText = "正しい読み方・声調を選んでください";
+            choices = shuffle([...q.choices]);
+        } else if (currentType === 4) {
+            categoryTitle = "タイプ4: アルファベット→タイ語変換";
+            mainText = q.promptText;
+            subText = "条件に合う正しいタイ文字はどれ？";
+            choices = shuffle([...q.choices]);
+        }
+
+        document.getElementById('q-category').innerText = categoryTitle;
+        document.getElementById('q-main').innerText = mainText;
+        document.getElementById('q-sub').innerText = subText;
+
+        const container = document.getElementById('choices-container');
+        container.innerHTML = '';
+        
+        choices.forEach(choice => {
+            const btn = document.createElement('button');
+            btn.className = 'choice-btn';
+            btn.innerText = choice;
+            btn.onclick = () => checkAnswer(choice, getCorrectAnswer(q));
+            container.appendChild(btn);
+        });
+    }
+
+    function toggleHint() {
+        const hintBox = document.getElementById('hint-box');
+        if (hintBox.style.display === 'block') {
+            hintBox.style.display = 'none';
+        } else {
+            hintBox.style.display = 'block';
+        }
+    }
+
+    function getCorrectAnswer(q) {
+        if (currentType === 1) return q.class;
+        if (currentType === 2) return q.isReverse ? q.thai : q.roman;
+        if (currentType === 3) return q.correct;
+        if (currentType === 4) return q.correct;
+    }
+
+    function checkAnswer(selected, correct) {
+        const feedback = document.getElementById('feedback');
+        const buttons = document.querySelectorAll('.choice-btn');
+        buttons.forEach(b => b.disabled = true);
+
+        // 正解・不正解にかかわらず、解答後にヒント（解説）を開いて復習しやすくする
+        document.getElementById('hint-box').style.display = 'block';
+
+        if (selected === correct) {
+            feedback.innerText = "正解！ 🎉";
+            feedback.className = "feedback correct";
+            score++;
+        } else {
+            feedback.innerText = `不正解... 正解は "${correct}" です。`;
+            feedback.className = "feedback incorrect";
+        }
+
+        currentIndex++;
+        setTimeout(() => {
+            loadQuestion();
+        }, 2200);
+    }
+
+    function returnToMenu() {
+        document.getElementById('menu-screen').style.display = 'block';
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'none';
+    }
+</script>
 
 </body>
-
 </html>
